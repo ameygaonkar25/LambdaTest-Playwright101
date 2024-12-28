@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="LamdatestTestNGCertification" verbose="1" parallel="classes" thread-count="4">
+
+     <test name="Parallel Testing on Lamdatest">
+        <classes>
+            <class name="Testcases.TestScenario1" >
+             <parameter name="Browser" value="chrome" />
+             <parameter name="Platform" value="Windows 10" />
+              <parameter name="BrowserVersion" value="128" />
+              <parameter name="Url" value="https://www.lambdatest.com/selenium-playground/" />
+              
+            </class>
+            
+            <class name="Testcases.TestScenario2" >
+            <parameter name="Browser" value="Firefox" />
+        <parameter name="Platform" value="Windows 11" />
+        <parameter name="BrowserVersion" value="130" />
+        <parameter name="Url" value="https://www.lambdatest.com/selenium-playground/" />
+                <!--<methods>
+                    <include name="searchClaimsByClaimID" />
+                </methods> -->
+            </class>
+             <class name="Testcases.TestScenario3" >
+               <parameter name="Browser" value="Edge" />
+             <parameter name="Platform" value="Windows 10" />
+            <parameter name="BrowserVersion" value="127" />
+            <parameter name="Url" value="https://www.lambdatest.com/selenium-playground/" />
+              
+            </class>
+            
+                 <class name="Testcases.TestScenario1" >
+              <parameter name="Browser" value="IE" />
+        <parameter name="Platform" value="Windows 11" />
+        <parameter name="BrowserVersion" value="11" />
+        <parameter name="Url" value="https://www.lambdatest.com/selenium-playground/" />
+            </class>
+        </classes>
+    </test>
+    
+ 
+</suite>
