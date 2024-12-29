@@ -5,6 +5,6 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - init: mvn test -D suite=testNGParallelClasses.xml
+  - init: mvn test -D suite=testNGParallelTests.xml
 
 
