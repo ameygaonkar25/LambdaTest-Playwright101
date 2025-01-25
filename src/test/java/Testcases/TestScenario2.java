@@ -1,6 +1,5 @@
 package test.java.Testcases;
     
-
 import java.net.URLEncoder;
 
 import org.testng.Assert;
@@ -12,8 +11,9 @@ import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.BoundingBox;
 
-public class TestScenario1 {
+public class TestScenario2 {
 
 	String status="";
 	Page page;
@@ -22,7 +22,7 @@ public class TestScenario1 {
 
 	@Parameters({"Browser","Platform","BrowserVersion"})
 	@Test
-	public void TestCase1(String Browser,String Platform,String BrowserVersion)
+	public void TestCase2(String Browser,String Platform,String BrowserVersion)
 	{   try (Playwright playwright = Playwright.create()) {
         JsonObject capabilities = new JsonObject();
         JsonObject ltOptions = new JsonObject();
@@ -48,23 +48,29 @@ public class TestScenario1 {
         try {
             page.navigate("https://www.lambdatest.com/selenium-playground");
             Thread.sleep(2000);
-            Locator locator = page.locator("//a[text()='Simple Form Demo']");
-            locator.click();
+            page.locator("//a[text()='Drag & Drop Sliders']").click();
             Thread.sleep(2000);
-            String actualCurrentUrl=page.url();
-            Assert.assertTrue(actualCurrentUrl.contains("simple-form-demo"),"Url not matched");
-            String expectedMessage="Welcome to LambdaTest";
-            Locator messageInputBox=page.locator("input[id='user-message']"); 
-            messageInputBox.fill(expectedMessage);
+
+            Locator sliderValue = page.locator("//input[@type='range' and @value='15']");
+            Locator outputValue = page.locator("//output[@id='rangeSuccess']");
+
+            double slidermove = 0;
+
+            for(int i=1;i<=31;i++){
+                BoundingBox boundingbox = sliderValue.boundingBox();
+                page.mouse().move(boundingbox.x + slidermove, boundingbox.y);
+                page.mouse().down();
+                slidermove += 15;
+                page.mouse().move(boundingbox.x + slidermove, boundingbox.y);
+                page.mouse().up();
+            }
+
             Thread.sleep(2000);
-           locator=page.locator("button[id='showInput']");
-           locator.click();
-           Thread.sleep(2000);
-           locator=page.locator("//div[@id='user-message']//p[@id='message']");
-           String actualMessage=locator.innerText();
-           Assert.assertEquals(actualMessage, expectedMessage,"Message is not Correct");   
-                // Use the following code to mark the test status.
-                setTestStatus("passed", "Title matched", page);   
+            String updatedOutputValue = outputValue.textContent();
+            System.out.println("Updated output value: " + updatedOutputValue);
+
+            Assert.assertEquals(updatedOutputValue, "95","Test Failed: Output value is " + updatedOutputValue + ", but expected 95");
+            setTestStatus("passed", "Title matched", page);   
 
         } catch (Exception err) {
             setTestStatus("failed", err.getMessage(), page);
