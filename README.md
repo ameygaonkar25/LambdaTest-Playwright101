@@ -1,7 +1,8 @@
 1. Go to GitHub repository "https://github.com/anu-bartonde/Playwright101"
 2. Go to Chrome WebStore and Install gitpod extension for chrome Browser  
 3. After Extension is installed, click on gitpod link available in git hub project to access it on gitpod
-  ![image](https://github.com/user-attachments/assets/10063b83-54c3-4329-9be7-066c3c83e68a)
+  ![image](https://github.com/user-attachments/assets/a02a87fc-7519-427d-98d3-e63675a335d0)
+
 4. Install Jetbrains gateway and access repo
 5. gitpod.yml file is congigured to run tests when initialization starts
 6. Can also run tests from gitpd command line using command "mvn test -D suite=<testXML file>".
