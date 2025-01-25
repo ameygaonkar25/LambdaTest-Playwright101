@@ -27,8 +27,8 @@ public class TestScenario2 {
         JsonObject capabilities = new JsonObject();
         JsonObject ltOptions = new JsonObject();
 
-        String user = "anuradha.bartondegmail";
-        String accessKey = "Go6XUtGVRW8Re0nxveqUtGQjpEzm4oGsqUiUHqYeUOX6kpvA5r";
+        String user = "anuradha.bartonde";
+        String accessKey = "dT5fhgPKwpSjHH07NkK9H8X7mfRlcEvg9yALdYZyaoeGuZ7wTG";
 
         capabilities.addProperty("browsername", Browser); // Browsers allowed: `Chrome`, `MicrosoftEdge`, `pw-chromium`, `pw-firefox` and `pw-webkit`
         capabilities.addProperty("browserVersion",BrowserVersion);
