@@ -1,4 +1,4 @@
-1. Go to GitHub repository "https://github.com/anu-bartonde/Playwright101"
+1. Go to GitHub repository "https://github.com/ameygaonkar25/LambdaTest-Playwright101"
 2. Go to Chrome WebStore and Install gitpod extension for chrome Browser  
 3. After Extension is installed, click on gitpod link available in git hub project to access it on gitpod
   ![image](https://github.com/user-attachments/assets/a02a87fc-7519-427d-98d3-e63675a335d0)
